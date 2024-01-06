@@ -1,0 +1,51 @@
+
+
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data = x;
+        next = null;
+    }
+}
+class Test{
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        insert(head,25,2);
+        print(head);
+    }
+
+    private static void print(Node head) {
+        Node curr = head;
+        while (curr!=null){
+            System.out.println(curr.data + " ");
+            curr = curr.next;
+        }
+    }
+
+    private static Node insert(Node head, int i,int pos) {
+        Node temp = new Node(i);
+        if(head == null){
+            if(pos == 1){
+                return temp;
+            }else {
+                return null;
+            }
+        }
+        Node curr = head;
+        int cnt=0;
+        while (curr!=null){
+            cnt++;
+            if(cnt==pos-1){
+                temp.next = curr.next;
+                curr.next = temp;
+                break;
+            }
+            curr = curr.next;
+          //  temp=temp.next;
+        }
+        return head;
+    }
+}
