@@ -1,0 +1,40 @@
+
+
+class Node{
+    int data;
+    Node next;
+    Node(int x){
+        data = x;
+        next = null;
+    }
+}
+class Test{
+    public static void main(String[] args) {
+        Node head = null;
+        head = insert(head,10);
+        head = insert(head,20);
+        head = insert(head,30);
+        head = insert(head,40);
+
+        print(head);
+    }
+
+    private static void print(Node head) {
+        Node curr = head;
+        while (curr!=null){
+            System.out.println(curr.data + " ");
+            curr = curr.next;
+        }
+    }
+
+    private static Node insert(Node head, int i) {
+        Node temp = new Node(i);
+        if(head==null) return temp;
+        Node curr = head;
+        while(curr.next!=null){
+            curr = curr.next;
+        }
+        curr.next = temp;
+        return head;
+    }
+}
